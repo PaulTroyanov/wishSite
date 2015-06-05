@@ -30,9 +30,29 @@
     	}
 	}
 
+	function generateWishes($argv) {
+		$wishDB=array();
+
+		$file = fopen('wishes.txt', 'r');
+		while(!feof($file)){
+			$string = fgets($file);
+			$wishDB[] = trim($string);
+		}
+
+		for($i = 0; $i < $argv[1]; $i++){
+			$wishAmount = rand(1,$argv[2]);
+
+			for($j = 0; $j < $wishAmount; $j++){
+				$temp = rand(0, 23);
+				addWish($i+1, $wishDB[$temp], getConnect());
+			}
+		}
+	}
+
 	include('vendor/autoload.php');
 	$faker = Faker\Factory::create();
 
 	generateUser($faker, $argv[1]);
+	generateWishes($argv);
 
 	?>
