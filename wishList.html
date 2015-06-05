@@ -1,0 +1,11 @@
+<center>
+	<ul>
+		<?php 
+		if(!empty(getWishList($user['id'], getConnect())))
+			foreach(getWishList($user['id'], getConnect()) as $wish) : 
+				foreach($wish as $key => $value) :?>
+				<li><?=$value?></li>	
+			<?php endforeach; 
+				endforeach; ?>
+	</ul>
+	</center>
