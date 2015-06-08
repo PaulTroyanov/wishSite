@@ -5,6 +5,12 @@
 		return $db;
 	}
 
+/**
+ * @param string $login
+ * @param string $password
+ * @param PDO $db
+ */
+
 	function createUser($login, $password, $db){
 		$query = $db->prepare("INSERT INTO `user` (login, password) VALUES (:login, :password)");
 		$query->bindParam(':login', $login, PDO::PARAM_STR);
@@ -13,6 +19,11 @@
 		
 	}
 
+/**
+ * @param int $id
+ * @param string $wish
+ * @param PDO $db
+ */
 	function addWish($id, $wish, $db) {
 		$query = $db->prepare("INSERT INTO `wishes` (id, wish) VALUES (:id, :wish)");
 		$query->bindParam(':id', $id, PDO::PARAM_INT);

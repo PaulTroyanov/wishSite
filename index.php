@@ -1,5 +1,4 @@
 <?php
-	
 	include('db.php');
 
     $redis = new Redis();
@@ -31,7 +30,6 @@
                             $_SESSION['user'] = true;
                             $_SESSION['login'] = $_POST['login'];
                             $_SESSION['pass'] = $_POST['pass'];
-                            
                             $_SESSION['counter'] = $data[$_POST['login']][1];
                             header('Location: /sitev2/account.php');
                             exit();
