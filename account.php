@@ -37,7 +37,6 @@
 			   	addWish($user['id'], $_POST['wish'], getConnect());
                 include('wisher.html');
                 include('wishList.html');
-                
                 break;		
     			
     	}
